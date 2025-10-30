@@ -1,0 +1,39 @@
+# fly.toml app configuration file generated for smartlinks-kissedearth on 2025-10-30T12:12:05+11:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'smartlinks-kissedearth'
+primary_region = 'syd'
+
+[build]
+
+[env]
+  PORT = '3000'
+  SCOPES = 'read_product_listings,read_products,write_product_listings,write_products'
+  SHOPIFY_API_KEY = '99c48eeacd6d1f3e03399b05949843cf'
+  SHOPIFY_APP_URL = 'https://smartlinks-kissedearth.fly.dev'
+  OPENAI_API_KEY = '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'
+
+[processes]
+  app = 'node ./dbsetup.js npm run docker-start'
+
+[[mounts]]
+  source = 'data'
+  destination = '/data'
+  auto_extend_size_threshold = 80
+  auto_extend_size_increment = '1GB'
+  auto_extend_size_limit = '10GB'
+
+[http_service]
+  internal_port = 3000
+  force_https = true
+  auto_stop_machines = 'stop'
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
