@@ -1,14 +1,13 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "99c48eeacd6d1f3e03399b05949843cf"
+client_id = "4f793213c07aac03bd9866f7d0b20aef"
 name = "Skailed™ Smart Links - KE"
 application_url = "https://smartlinks-kissedearth.fly.dev"
 embedded = true
 
 [build]
 automatically_update_urls_on_dev = false
-dev_store_url = "ke-demo-2.myshopify.com"
-include_config_on_deploy = true
+dev_store_url = "kissedearth.myshopify.com"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
